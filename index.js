@@ -34,6 +34,11 @@ let timeoutID;
 const onInput = async event => {
      const movies  = await fetchData(event.target.value)
 
+    if(!movies.length){
+        dropdown.classList.remove("is-active");
+        return
+    }
+
      resultsWrapper.innerHTML = "";
      dropdown.classList.add("is-active");
     for(let movie of movies){
